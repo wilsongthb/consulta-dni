@@ -1,2 +1,3 @@
 .session.vim
 **.swp
+**/__pycache__/**

@@ -1,3 +1,5 @@
 .session.vim
 **.swp
 **/__pycache__/**
+python_env
+.env

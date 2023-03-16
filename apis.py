@@ -17,13 +17,19 @@ def apisnet(dni, token=''):
         jsonedResponse = result.json()
         nombreContribuyente = jsonedResponse['nombre'].split(' ')
         nombreFinal = jsonedResponse['nombre']
+        apellidoPaterno = ''
+        apellidoMaterno = ''
         if len(nombreContribuyente) >= 3:
             nombres = ' '.join(nombreContribuyente[2:])
             nombreFinal = f'{nombres} {nombreContribuyente[0]} {nombreContribuyente[1]}'
+            apellidoPaterno = f'{nombreContribuyente[0]}'
+            apellidoMaterno = f'{nombreContribuyente[1]}'
         responseData = {
             'nombre': nombreFinal,
             'apellidos_nombres': jsonedResponse['nombre'],
-            'dni': dni
+            'dni': dni,
+            'apellido_paterno': apellidoPaterno,
+            'apellido_materno': apellidoMaterno,
         }
         return jsonify(responseData)
         #  return jsonify(jsonedResponse)
@@ -45,13 +51,19 @@ def apifacturacion(dni, token):
         jsonedResponse = result.json()
         nombreSeparado = jsonedResponse['cliente'].split(' ')
         apellidosNombres = ''
+        apellidoPaterno = ''
+        apellidoMaterno = ''
         if len(nombreSeparado) >= 3:
             nombres = ' '.join(nombreSeparado[:-2])
             apellidosNombres = f"{nombreSeparado[-2]} {nombreSeparado[-1]} {nombres}"
+            apellidoPaterno = f"{nombreSeparado[-2]}"
+            apellidoMaterno = f"{nombreSeparado[-1]}"
         responseData = {
             'nombre': jsonedResponse['cliente'],
             'apellidos_nombres': apellidosNombres,
-            'dni': dni
+            'dni': dni,
+            'apellido_paterno': apellidoPaterno,
+            'apellido_materno': apellidoMaterno,
         }
         return jsonify(responseData)
     except:

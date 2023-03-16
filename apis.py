@@ -30,6 +30,7 @@ def apisnet(dni, token=''):
             'dni': dni,
             'apellido_paterno': apellidoPaterno,
             'apellido_materno': apellidoMaterno,
+            'nombres': nombres,
         }
         return jsonify(responseData)
         #  return jsonify(jsonedResponse)
@@ -64,6 +65,7 @@ def apifacturacion(dni, token):
             'dni': dni,
             'apellido_paterno': apellidoPaterno,
             'apellido_materno': apellidoMaterno,
+            'nombres': nombres,
         }
         return jsonify(responseData)
     except:

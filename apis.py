@@ -73,3 +73,18 @@ def apifacturacion(dni, token):
             'message': 'No lo encontre :/',
             'code': '1'
         }), 404
+
+
+def apitec(dni):
+    """
+    api
+    """
+    try:
+        result = http.get(f"https://tecingenieros.net.pe/dnis/dni/{dni}")
+        jsonedResponse = result.json()
+        return jsonify(jsonedResponse)
+    except:
+        return jsonify({
+            'message': 'No se encontro registros',
+            'code': '1'
+        }), 404

@@ -17,5 +17,5 @@ CORS(app)
 def default_main(dni):
     #  if request.args.get('dni'):
     if dni:
-        return apis.apifacturacion(dni, token=os.getenv('API_FACTURACION_TOKEN'))
+        return apis.apitec(dni)
     return ''

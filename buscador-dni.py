@@ -17,5 +17,5 @@ CORS(app)
 def default_main(dni):
     #  if request.args.get('dni'):
     if dni:
-        return apis.apitec(dni)
+        return apis.apisnet(dni)
     return ''

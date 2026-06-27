@@ -36,7 +36,7 @@ def apisnet(dni, token=''):
         #  return jsonify(jsonedResponse)
     except:
         return jsonify({
-            'message': 'No lo encontre :/',
+            'message': 'Algo salio mal :/',
             'code': '1'
         }), 404
 
